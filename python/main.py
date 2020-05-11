@@ -1,7 +1,6 @@
 import os
 import os.path
 import sys
-import asyncio
 import requests
 import json
 from pathlib import Path
