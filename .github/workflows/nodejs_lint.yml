@@ -9,6 +9,9 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-16.04
+    defaults:
+      run:
+        working-directory: nodejs
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2
