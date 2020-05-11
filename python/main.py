@@ -6,7 +6,7 @@ import requests
 import json
 from pathlib import Path
 from constants import base_URL
-from helpers import is_valid_category, get_JSON
+from helpers import is_valid_category
 
 try:
     category = sys.argv[1]
