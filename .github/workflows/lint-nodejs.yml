@@ -5,10 +5,10 @@ on:
     branches:
       - master
     paths:
-      - 'nodejs/**'
+      - "nodejs/**"
 jobs:
-  lint:
-    runs-on: ubuntu-16.04
+  lint-node:
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: nodejs
@@ -19,7 +19,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '14.x'
+          node-version: "14.x"
 
       - name: Install Dependencies
         run: npm install
