@@ -4,18 +4,21 @@ module.exports = {
     node: true
   },
   extends: ['airbnb-base', 'prettier'],
-  plugins: ['prettier'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly'
   },
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 11,
     sourceType: 'module'
   },
+  plugins: ['@typescript-eslint', 'prettier'],
   rules: {
     'prettier/prettier': 'error',
-    'import/prefer-default-export': 0,
-    'import/extensions': 0
+    'import/extensions': 0,
+    'import/no-unresolved': 0,
+    'no-unused-vars': 0,
+    '@typescript-eslint/no-unused-vars': 'error'
   }
 };
