@@ -3,7 +3,7 @@
 # Data-Generator
 Project to compare the following popular programming languages -
 - [x] NodeJS
-- [ ] NodeJS + TypeScript
+- [x] NodeJS + TypeScript
 - [x] Python
 - [ ] Rust
 - [ ] Go
