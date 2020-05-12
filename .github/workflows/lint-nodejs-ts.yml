@@ -7,7 +7,7 @@ on:
     paths:
       - "nodejs-ts/**"
 jobs:
-  lint-node:
+  lint-node-ts:
     runs-on: ubuntu-latest
     defaults:
       run:
