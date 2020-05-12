@@ -1,3 +1,5 @@
+"""This script will accept one argument and generate a json file based on the inputted category"""
+
 import os
 import os.path
 import sys
@@ -31,6 +33,6 @@ try:
     f = open(data_file, "w")
     f.write(json_object)
     f.close()
-except:
+except requests.exceptions.RequestException:
     print("Something went wrong")
     sys.exit(1)
