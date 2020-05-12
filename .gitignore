@@ -1,6 +1,5 @@
+/data/
 node_modules
-nodejs/data/
 
 __pycache__/
-python/data/
 .vscode/

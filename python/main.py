@@ -1,24 +1,30 @@
 import os
 import os.path
 import sys
-import requests
 import json
 from pathlib import Path
-from constants import base_URL
+import requests
+from constants import BASE_URL, allowed_categories
 from helpers import is_valid_category
 
-try:
-    category = sys.argv[1]
-    # TODO: Validate category
-except:
-    print("This app requires one valid argument to start.", sys.argv)
+if len(sys.argv) != 2:
+    print("This app requires one argument to start.")
+    sys.exit(1)
 
+category = sys.argv[1]
+if not is_valid_category(category=category):
+    print(
+        "This app requires one valid argument to start. The category options are - {}".format(
+            " | ".join(allowed_categories)
+        )
+    )
+    sys.exit(1)
 
 try:
     if not os.path.isdir("data"):
         os.mkdir("data")
 
-    data = requests.get(base_URL + category).json()
+    data = requests.get(BASE_URL + category).json()
     json_object = json.dumps(data, indent=2)
     data_folder = Path("data/")
     data_file = data_folder / (category + ".json")
@@ -27,3 +33,4 @@ try:
     f.close()
 except:
     print("Something went wrong")
+    sys.exit(1)
