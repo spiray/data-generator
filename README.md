@@ -1,11 +1,11 @@
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![GitHub contributors](https://img.shields.io/github/contributors/spiray/lang-showdown.svg) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/spiray/lang-showdown.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![GitHub contributors](https://img.shields.io/github/contributors/spiray/lang-showdown.svg) ![GitHub language count](https://img.shields.io/github/languages/count/spiray/data-generator) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/spiray/lang-showdown.svg)
 
 # Data-Generator
 Project to compare the following popular programming languages -
 - [x] NodeJS
 - [x] NodeJS + TypeScript
 - [x] Python
-- [ ] Rust
+- [x] Rust
 - [ ] Go
 - [ ] Java
 - [ ] C#
