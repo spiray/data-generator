@@ -20,6 +20,7 @@ fn main() {
             "This app requires one valid argument to start. The category options are - {}",
             constants::ALLOWED_CATEGORIES.join(" | ")
         );
+        process::exit(1);
     }
 
     fs::create_dir("data");
