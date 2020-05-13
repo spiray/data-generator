@@ -1,0 +1,29 @@
+name: Lint Rust PR
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - "rust/**"
+
+jobs:
+  lint-rust:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: rust
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Install dependencies
+        run: rustup component add clippy
+
+      - name: Run Linter
+        run: cargo clippy
