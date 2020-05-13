@@ -11,4 +11,3 @@
 TODO: 
 - [ ] Add CI to run clippy
 - [ ] Write json to file
-- [ ] Clean lockfile

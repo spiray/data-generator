@@ -27,7 +27,7 @@ fn main() {
 
     match reqwest::get(&(constants::BASE_URL.to_string() + category)) {
         Ok(mut response) => {
-            if response.status() == reqwest::StatusCode::Ok {
+            if response.status() == reqwest::StatusCode::OK {
                 match response.text() {
                     Ok(text) => println!("Response text {}", text),
                     Err(_) => println!("Can not get response text"),
