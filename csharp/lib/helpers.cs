@@ -5,7 +5,7 @@ using static DataGenerator.Constants.Constants;
 
 namespace DataGenerator.Helpers
 {
-    static class Helpers
+    public static class Helpers
     {
         public static bool IsValidCategory(string category)
         {
