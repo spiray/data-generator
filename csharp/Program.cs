@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Linq;
+using System.IO;
+using static DataGenerator.Constants.Constants;
+using static DataGenerator.Helpers.Helpers;
 
-static class Constants
-{
-    public const string BASE_URL = "https://jsonplaceholder.typicode.com/";
-    public static readonly string[] ALLOWED_CATEGORIES = { "posts", "comments", "albums", "photos", "todos", "users" };
-}
-
-namespace csharp
+namespace DataGenerator
 {
     class Program
     {
@@ -20,11 +16,28 @@ namespace csharp
             }
 
             string category = args[0];
-            if (!Constants.ALLOWED_CATEGORIES.Contains(category))
+            if (!Helpers.Helpers.IsValidCategory(category))
             {
-                Console.WriteLine("This app requires one valid argument to start. The category options are - {0}", string.Join(" | ", Constants.ALLOWED_CATEGORIES));
+                Console.WriteLine("This app requires one valid argument to start. The category options are - {0}", string.Join(" | ", ALLOWED_CATEGORIES));
                 return 1;
             }
+
+            if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "data")))
+            {
+                Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "data"));
+            }
+
+            try
+            {
+                string data = GetJSONData(category);
+                File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(), "data", category + ".json"), data);
+            }
+            catch (Exception error)
+            {
+                Console.WriteLine(error);
+                return 1;
+            }
+
 
             return 0;
         }
