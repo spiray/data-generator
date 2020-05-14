@@ -16,7 +16,7 @@ namespace DataGenerator
             }
 
             string category = args[0];
-            if (!Helpers.Helpers.IsValidCategory(category))
+            if (!IsValidCategory(category))
             {
                 Console.WriteLine("This app requires one valid argument to start. The category options are - {0}", string.Join(" | ", ALLOWED_CATEGORIES));
                 return 1;
