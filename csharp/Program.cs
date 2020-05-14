@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
-using static DataGenerator.Constants.Constants;
-using static DataGenerator.Helpers.Helpers;
+using DataGenerator.Lib;
 
 namespace DataGenerator
 {
@@ -16,21 +15,18 @@ namespace DataGenerator
             }
 
             string category = args[0];
-            if (!IsValidCategory(category))
+            if (!Helpers.IsValidCategory(category))
             {
-                Console.WriteLine("This app requires one valid argument to start. The category options are - {0}", string.Join(" | ", ALLOWED_CATEGORIES));
+                Console.WriteLine("This app requires one valid argument to start. The category options are - {0}", string.Join(" | ", Constants.ALLOWED_CATEGORIES));
                 return 1;
             }
 
-            if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "data")))
-            {
-                Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "data"));
-            }
+            Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "data"));
 
             try
             {
-                string data = GetJSONData(category);
-                File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(), "data", category + ".json"), data);
+                var data = Helpers.GetJSONData(category).GetAwaiter().GetResult();
+                File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(), "data", $"{category}.json"), data);
             }
             catch (Exception error)
             {

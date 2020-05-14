@@ -1,4 +1,4 @@
-namespace DataGenerator.Constants
+namespace DataGenerator.Lib
 {
     public static class Constants
     {

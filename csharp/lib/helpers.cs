@@ -1,27 +1,23 @@
 using System.Linq;
 using System.IO;
-using System.Net;
-using static DataGenerator.Constants.Constants;
+using System.Net.Http;
+using System.Threading.Tasks;
+using DataGenerator.Lib;
 
-namespace DataGenerator.Helpers
+namespace DataGenerator.Lib
 {
     public static class Helpers
     {
         public static bool IsValidCategory(string category)
         {
-            return ALLOWED_CATEGORIES.Contains(category);
+            return Constants.ALLOWED_CATEGORIES.Contains(category);
         }
-        public static string GetJSONData(string category)
+        public static async Task<string> GetJSONData(string category)
         {
-            WebRequest request = WebRequest.Create(BASE_URL + category);
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            Stream dataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(dataStream);
-            string responseFromServer = reader.ReadToEnd();
-            reader.Close();
-            dataStream.Close();
-            response.Close();
-            return responseFromServer;
+            var client = new HttpClient();
+            var response = await client.GetAsync($"{Constants.BASE_URL}{category}");
+            response.EnsureSuccessStatusCode();
+            return await response.Content.ReadAsStringAsync();
         }
     }
 }
