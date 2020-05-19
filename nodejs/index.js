@@ -1,7 +1,7 @@
 import { promises as fsPromises } from "fs";
 import path from "path";
-import { getJSON, isValidCategory } from "./api/helpers.js";
-import { allowedCategories } from "./api/constants/index.js";
+import { getJSON, isValidCategory } from "./lib/helpers.js";
+import { allowedCategories } from "./lib/constants.js";
 
 const category = process.argv[2];
 if (!isValidCategory(category)) {
@@ -21,5 +21,8 @@ if (!isValidCategory(category)) {
     const { body } = await getJSON(category);
     const filePath = path.join(path.resolve(), "data", `${category}.json`);
     await fsPromises.writeFile(filePath, body, "utf-8");
+    process.stdout.write(
+      `Check out your ${category.slice(0, -1)} data @ /data/${category}.json\n`
+    );
   }
 })();

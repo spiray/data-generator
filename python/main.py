@@ -33,6 +33,7 @@ try:
     f = open(data_file, "w")
     f.write(json_object)
     f.close()
+    print("Check out your {} data @ /data/{}.json\n".format(category[:-1], category))
 except requests.exceptions.RequestException:
     print("Something went wrong")
     sys.exit(1)

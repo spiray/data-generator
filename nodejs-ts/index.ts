@@ -21,5 +21,8 @@ if (!isValidCategory(category)) {
     const { body } = await getJSON(category);
     const filePath = path.join(path.resolve(), 'data', `${category}.json`);
     await fsPromises.writeFile(filePath, body, 'utf-8');
+    process.stdout.write(
+      `Check out your ${category.slice(0, -1)} data @ /data/${category}.json\n`
+    );
   }
 })();

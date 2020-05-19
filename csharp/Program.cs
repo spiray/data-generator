@@ -34,7 +34,7 @@ namespace DataGenerator
                 return 1;
             }
 
-
+            Console.WriteLine("Check out your {0} data @ /data/{1}.json", category.Substring(0, category.Length - 1), category);
             return 0;
         }
     }

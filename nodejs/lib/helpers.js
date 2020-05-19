@@ -1,9 +1,9 @@
 import got from "got/dist/source/index.js";
-import { baseURL, allowedCategories } from "./constants/index.js";
+import { baseURL, allowedCategories } from "./constants.js";
 
 /**
  * @description This function fetches data from the JSONPlaceholder API
- * @param {string} category 
+ * @param {string} category
  * @returns {Promise<string>}
  */
 export async function getJSON(category) {
@@ -12,7 +12,7 @@ export async function getJSON(category) {
 
 /**
  * @description This function verifies that the passed in argument is valid.
- * @param {string} category 
+ * @param {string} category
  * @returns {boolean}
  */
 export function isValidCategory(category) {
