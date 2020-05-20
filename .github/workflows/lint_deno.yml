@@ -7,7 +7,7 @@ on:
     paths:
       - "deno/**"
 jobs:
-  lint-node-ts:
+  lint-deno:
     runs-on: ubuntu-latest
     defaults:
       run:
