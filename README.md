@@ -6,10 +6,11 @@ Project to compare the following popular programming languages -
 - [x] NodeJS + TypeScript
 - [x] Python
 - [x] Rust
-- [ ] Go
+- [x] Go
 - [x] Java
 - [x] C#
 - [x] Deno
+- [ ] F#
 
 ## Project Summary:
 This is a CLI application that will accept a category name and create a `data` directory in the current working directory. It will subsequently write a JSON file to the `data` directory with data related to the provided category.
