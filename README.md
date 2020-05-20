@@ -7,7 +7,7 @@ Project to compare the following popular programming languages -
 - [x] Python
 - [x] Rust
 - [ ] Go
-- [ ] Java
+- [x] Java
 - [x] C#
 - [x] Deno
 
