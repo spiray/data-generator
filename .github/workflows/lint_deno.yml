@@ -1,0 +1,28 @@
+name: Lint Deno PR
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - "deno/**"
+jobs:
+  lint-node-ts:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: deno
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Install Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "14.x"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Linter
+        run: npx eslint . --ext .ts,.js --quiet
