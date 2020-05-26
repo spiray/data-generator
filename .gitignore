@@ -28,5 +28,6 @@ msbuild.wrn
 *.class
 
 go/main
+go/go
 #Editor
 .vscode/
