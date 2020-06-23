@@ -50,9 +50,9 @@ jobs:
     - name: Build
       run: |
         cd rust && cargo build
-        cd java && javac Main.java
-        cd go && go build
-        cd dotnet && dotnet build
+        cd ../java && javac Main.java
+        cd ../go && go build
+        cd ../dotnet && dotnet build
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
