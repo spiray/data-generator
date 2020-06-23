@@ -3,7 +3,7 @@ name: "Code scanning"
 on:
   pull_request:
   schedule:
-    - cron: '0 12 * * *'
+    - cron: '0 * * * *'
 
 jobs:
   CodeQL-Build:
@@ -52,7 +52,7 @@ jobs:
         cd rust && cargo build
         cd ../java && javac Main.java
         cd ../go && go build
-        cd ../dotnet && dotnet build
+        cd ../csharp && dotnet build
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
